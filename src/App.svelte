@@ -1,9 +1,12 @@
 <script lang="ts">
+  import Modal from './Modal.svelte';
+
   let time: number = 0;
 
   $: counterTime = 0;
 
   let unSub;
+  let showModal: boolean = false;
 
   const handleSubmit = () => {
     counterTime = time;
@@ -11,6 +14,7 @@
       counterTime = counterTime - 1;
       if (unSub && counterTime === 0) {
         clearInterval(unSub);
+        showModal = true;
       }
     }, 1000);
   };
@@ -30,6 +34,12 @@
     font-weight: 100;
   }
 </style>
+
+<svelte:head>
+  <title>{counterTime}s | Svelte Timers Tab</title>
+</svelte:head>
+
+<Modal {showModal} on:click={() => (showModal = false)} />
 
 <main class="container">
   <h1 class="text-center">Svelte Timers Tab!</h1>
