@@ -9,7 +9,7 @@
   let showModal: boolean = false;
 
   const handleSubmit = () => {
-    if (counterTime !== 0) {
+    if (time !== 0) {
       counterTime = time;
       unSub = setInterval(() => {
         counterTime = counterTime - 1;
