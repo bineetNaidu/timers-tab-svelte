@@ -23,6 +23,12 @@
   <div class="backdrop" on:click|self>
     <div class="modal_svelte">
       <h1>Times up ⏲️!!!</h1>
+      <audio controls autoplay loop>
+        <track kind="captions" />
+        <source src="/assets/ALARM.mp3" type="audio/mp3" />
+        <!-- <source src="viper.ogg" type="audio/ogg"> -->
+        <p>Your browser doesn't support HTML5 audio.</p>
+      </audio>
     </div>
   </div>
 {/if}
