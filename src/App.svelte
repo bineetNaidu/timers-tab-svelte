@@ -9,14 +9,18 @@
   let showModal: boolean = false;
 
   const handleSubmit = () => {
-    counterTime = time;
-    unSub = setInterval(() => {
-      counterTime = counterTime - 1;
-      if (unSub && counterTime === 0) {
-        clearInterval(unSub);
-        showModal = true;
-      }
-    }, 1000);
+    if (counterTime !== 0) {
+      counterTime = time;
+      unSub = setInterval(() => {
+        counterTime = counterTime - 1;
+        if (unSub && counterTime === 0) {
+          clearInterval(unSub);
+          showModal = true;
+        }
+      }, 1000);
+    } else {
+      alert('Please set a valid timer (not 0)');
+    }
   };
 
   const handleReset = () => {
